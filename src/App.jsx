@@ -15,7 +15,7 @@ import './App.css';
 
 export default function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const location = useLocation();
