@@ -1,0 +1,303 @@
+/* src/styles/GlassNavbar.module.css */
+
+.navbarWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+  transition: all 0.4s ease;
+  pointer-events: none;
+  /* Para que no bloquee clics fuera de la barra */
+}
+
+/* Estado cuando se hace scroll */
+.navbarWrapper.scrolled {
+  padding: 10px 20px;
+}
+
+.navbar {
+  pointer-events: auto;
+  /* Reactivar clics dentro de la barra */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  /* Forma de píldora */
+
+  /* Efecto Cristal (Glassmorphism) */
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+
+  transition: all 0.4s ease;
+}
+
+/* Cuando se hace scroll, la barra se vuelve un poco más oscura/opaca */
+.navbarWrapper.scrolled .navbar {
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 8px 24px;
+}
+
+/* =========================================
+   LOGO
+   ========================================= */
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.logoIcon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  /* Evita que el icono se encoja */
+}
+
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Texto del logo: oculto por defecto, se revela al hacer hover */
+.logoText {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--text-dark);
+  white-space: nowrap;
+  /* Evita que el texto haga saltos de línea */
+
+  /* Estado inicial: oculto y sin ancho */
+  opacity: 0;
+  max-width: 0;
+  overflow: hidden;
+
+  /* Animación suave para revelar */
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Al pasar el cursor por el contenedor del logo, el texto aparece */
+.logoContainer:hover .logoText {
+  opacity: 1;
+  max-width: 250px;
+  /* Ancho suficiente para "Enigma Publicidad & Diseño" */
+  margin-left: 8px;
+  /* Pequeño desplazamiento hacia la derecha */
+}
+
+/* =========================================
+   ENLACES DE NAVEGACIÓN
+   ========================================= */
+.navLinks {
+  display: flex;
+  gap: 8px;
+  padding: 0 20px;
+  align-items: center;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #555;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 8px 16px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.navLink:hover {
+  color: var(--cmyk-magenta);
+  background: rgba(230, 0, 126, 0.08);
+}
+
+.navLink.active {
+  color: white;
+  background: var(--cmyk-magenta);
+  box-shadow: 0 4px 10px rgba(230, 0, 126, 0.3);
+}
+
+/* =========================================
+   CONTENEDOR DE ACCIONES (WhatsApp + Hamburguesa)
+   ========================================= */
+.actionsContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* Espacio entre el botón de WhatsApp y la hamburguesa */
+  margin-left: auto;
+  /* Empuja el grupo hacia la derecha */
+}
+
+/* =========================================
+   BOTÓN DE CONTACTO
+   ========================================= */
+.contactBtn {
+  background: linear-gradient(135deg, var(--cmyk-magenta), var(--cmyk-cyan));
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(230, 0, 126, 0.3);
+  text-decoration: none;
+}
+
+.contactBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(230, 0, 126, 0.5);
+}
+
+/* =========================================
+   MENÚ MÓVIL (HAMBURGUESA)
+   ========================================= */
+.mobileMenuBtn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--text-dark);
+}
+
+/* --- MENÚ DESPLEGABLE MÓVIL --- */
+.mobileMenu {
+  display: none;
+  /* Oculto por defecto en Desktop */
+  pointer-events: auto;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 1200px;
+
+  /* Posicionamiento absoluto para que no lo aplaste el flex padre */
+  position: absolute;
+  top: 100%;
+  /* Justo debajo de la barra */
+  left: 0;
+  right: 0;
+  margin: 12px auto 0;
+  /* Centrado con margen superior */
+
+  padding: 16px;
+  border-radius: 24px;
+
+  /* Efecto Cristal */
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  z-index: 999;
+}
+
+.mobileNavLink {
+  text-decoration: none;
+  color: #555;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 20px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.mobileNavLink:hover {
+  background: rgba(230, 0, 126, 0.08);
+  color: var(--cmyk-magenta);
+}
+
+.mobileNavLink.active {
+  background: var(--cmyk-magenta);
+  color: white;
+  box-shadow: 0 4px 15px rgba(230, 0, 126, 0.3);
+}
+
+/* =========================================
+   RESPONSIVO
+   ========================================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+
+  .navLink {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Móvil */
+@media (max-width: 768px) {
+  .navbarWrapper {
+    padding: 12px;
+  }
+
+  .navbar {
+    padding: 10px 16px;
+    border-radius: 24px;
+  }
+
+  /* En móvil, el texto del logo siempre está visible (no hay hover) */
+  .logoText {
+    opacity: 1;
+    max-width: 200px;
+    margin-left: 4px;
+    font-size: 0.85rem;
+  }
+
+  .navLinks {
+    display: none;
+    /* Ocultar enlaces en móvil, se manejan con menú desplegable */
+  }
+
+  .mobileMenuBtn {
+    display: block;
+    /* Mostrar botón hamburguesa */
+  }
+
+  /* Mostrar el menú desplegable cuando está en móvil */
+  .mobileMenu {
+    display: flex;
+  }
+
+  /* Ajustes para el contenedor de acciones en móvil */
+  .actionsContainer {
+    gap: 4px;
+    /* Menos espacio entre WhatsApp y hamburguesa */
+  }
+
+  .contactBtn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .contactBtn span {
+    display: none;
+    /* Ocultar texto "Contactar" en móvil, dejar solo el icono */
+  }
+}

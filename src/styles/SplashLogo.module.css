@@ -1,0 +1,95 @@
+/* src/styles/SplashLogo.module.css */
+
+.splashContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  z-index: 5000;
+
+  /* Fondo con gradiente CMYK sutil (esto se mantiene) */
+  background: linear-gradient(135deg, rgba(0, 159, 227, 0.1), rgba(230, 0, 126, 0.1), rgba(255, 209, 0, 0.1));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Contenedor del Logo */
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Contenedor del icono - SIN FONDO DE COLOR */
+.logoIcon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Eliminamos el background, border-radius y box-shadow del gradiente */
+}
+
+/* Imagen del logo dentro del contenedor */
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Texto del Logo */
+.logoText {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+}
+
+/* Texto de "Cargando..." con animación de pulso */
+.loadingText {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #666;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* =========================================
+   RESPONSIVO
+   ========================================= */
+
+/* Móvil */
+@media (max-width: 768px) {
+  .logoIcon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .logoText {
+    font-size: 1.2rem;
+  }
+
+  .loadingText {
+    font-size: 0.8rem;
+  }
+}

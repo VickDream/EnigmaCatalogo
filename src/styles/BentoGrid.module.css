@@ -1,0 +1,83 @@
+/* src/styles/BentoGrid.module.css */
+
+.gridContainer {
+  display: grid;
+  /* Columnas: 4 columnas en Desktop */
+  grid-template-columns: repeat(4, 1fr);
+  /* Filas automáticas de 250px de alto base */
+  grid-auto-rows: 250px;
+  /* Espacio entre tarjetas */
+  gap: 24px;
+  /* Rellenar huecos automáticamente para que no queden espacios vacíos */
+  grid-auto-flow: dense;
+  width: 100%;
+  padding-bottom: 60px;
+}
+
+/* =========================================
+   VARIACIONES DE TAMAÑO (Para el efecto Bento)
+   ========================================= */
+
+/* Tarjeta Grande (2x2) - Ocupa 2 columnas y 2 filas */
+.cardLarge {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* Tarjeta Ancha (2x1) - Ocupa 2 columnas y 1 fila */
+.cardWide {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+/* Tarjeta Alta (1x2) - Ocupa 1 columna y 2 filas */
+.cardTall {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+/* Tarjeta Normal (1x1) - Ocupa 1 columna y 1 fila */
+.cardNormal {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+/* =========================================
+   RESPONSIVO
+   ========================================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .gridContainer {
+    /* 2 columnas en Tablet */
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 220px;
+    gap: 16px;
+  }
+
+  /* En tablet, la tarjeta grande pasa a ser ancha (2x1) */
+  .cardLarge {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+}
+
+/* Móvil */
+@media (max-width: 768px) {
+  .gridContainer {
+    /* 1 columna en Móvil */
+    grid-template-columns: 1fr;
+    grid-auto-rows: 300px;
+    /* Más altas para que se vean bien */
+    gap: 16px;
+  }
+
+  /* En móvil, TODAS las tarjetas ocupan el 100% del ancho (1 columna) */
+  .cardLarge,
+  .cardWide,
+  .cardTall,
+  .cardNormal {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}

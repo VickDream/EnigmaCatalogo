@@ -1,0 +1,47 @@
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 520.697 567.85">
+  <defs>
+    <clipPath id="clip-path" transform="translate(10.453 9.503)">
+      <path d="M501,11.024c-.858,6.518-2.4,16.888-4.811,29.433-11.443,59.315-61.716,98.872-122.135,98.872L216.58,141.24l-5.456.071-7.243.327c-27.012,1.717-39.169,8.715-43.756,12.352a1.369,1.369,0,0,0,.776,2.431c33.969,2.5,52.358,6.927,58.488,8.623a18.673,18.673,0,0,0,5.037.674l199.215-.552c3.433,0,6.13,3.423,5.66,7.315-.7,6.365-1.961,16.479-3.954,28.738-9.368,57.905-50.559,96.523-100.118,96.523,0,0-134.18.6-140.646.6-35.635,0-64.526,7.479-64.526,16.7,0,4.321,20.9,11.83,49.038,13.608l282.1,3.065a6.191,6.191,0,0,1,6.178,6.2,6.317,6.317,0,0,1-.048.753c-2.554,20.146-11.7,79.86-34.735,122.186,0,0-301.766,1.021-306.741,1.021A108.789,108.789,0,0,1,8.517,336.43l.051-.255,1.021-5.486L39.768,166.556A199.052,199.052,0,0,1,235.51,3.536H494.092A6.761,6.761,0,0,1,501,11.024Z" fill="none"/>
+    </clipPath>
+    <linearGradient id="Degradado_sin_nombre" data-name="Degradado sin nombre" x1="106.163" y1="147.646" x2="466.539" y2="147.646" gradientTransform="matrix(1, 0, 0, -1, 10.453, 546.975)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7a5f1e"/>
+      <stop offset="0.48" stop-color="#f49614"/>
+      <stop offset="1" stop-color="#ffcd00"/>
+    </linearGradient>
+    <linearGradient id="Degradado_sin_nombre_2" data-name="Degradado sin nombre 2" x1="7.203" y1="410.791" x2="510.244" y2="410.791" gradientTransform="matrix(1, 0, 0, -1, 0, 537.471)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0084ca"/>
+      <stop offset="0.48" stop-color="#00a9e2"/>
+      <stop offset="1" stop-color="#00a4ca"/>
+    </linearGradient>
+    <linearGradient id="Degradado_sin_nombre_3" data-name="Degradado sin nombre 3" x1="181.211" y1="312.982" x2="457.426" y2="312.982" gradientTransform="matrix(1, 0, 0, -1, 0, 537.471)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d1225c"/>
+      <stop offset="0.48" stop-color="#e82f80"/>
+      <stop offset="1" stop-color="#e72b7d"/>
+    </linearGradient>
+    <linearGradient id="Degradado_sin_nombre_4" data-name="Degradado sin nombre 4" x1="18.13" y1="302.34" x2="221.616" y2="302.34" gradientTransform="matrix(1, 0, 0, -1, 0, 537.471)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2d1429"/>
+      <stop offset="0.48" stop-color="#4c1a38"/>
+      <stop offset="1" stop-color="#581c41"/>
+    </linearGradient>
+    <linearGradient id="Degradado_sin_nombre_5" data-name="Degradado sin nombre 5" x1="222.607" y1="461.582" x2="427.922" y2="461.582" gradientTransform="matrix(1, 0, 0, -1, 0, 537.471)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#005eab"/>
+      <stop offset="0.48" stop-color="#0080c0"/>
+      <stop offset="1" stop-color="#009fd5"/>
+    </linearGradient>
+  </defs>
+  <title>logoe</title>
+  <g clip-path="url(#clip-path)">
+    <g>
+      <polygon points="116.616 475.23 452.248 475.23 476.992 330.099 136.415 323.428 116.616 475.23" fill="url(#Degradado_sin_nombre)"/>
+      <g opacity="0.38">
+        <path d="M7.229,329.422l-1.021,5.5C6.5,333.069,6.892,331.251,7.229,329.422Z" transform="translate(10.453 9.503)" fill="#6ec9f3" opacity="0.63" style="isolation: isolate"/>
+      </g>
+      <path d="M510.244,1.452s-4.086,136.069-140.187,139.369-183.891-4.087-214.407,21.454S7.229,262.864,7.229,262.864,3.082,81.444,97.919,27.891,435.206-5.965,435.206-5.965Z" transform="translate(10.453 9.503)" fill="url(#Degradado_sin_nombre_2)"/>
+      <path d="M13.022,243.9s-52.818,140.187,0,189.664,136.069,33.816,136.069,33.816l51.081-153.468Z" transform="translate(10.453 9.503)" fill="#251a22"/>
+      <path d="M209.244,155.961,181.211,300.01s183.892,1.644,202.863,0,73.352-91.568,73.352-91.568l-4.944-60.2Z" transform="translate(10.453 9.503)" fill="url(#Degradado_sin_nombre_3)"/>
+      <path d="M18.283,238.13s27.727-42.908,70.574-63.5,77.306-18.961,85.989-18.389,39.721,5.9,46.77,8.8l-22.343,136.9s-74.322-4.2-76,12.015c0,0-31.568,4.086-62.145-15.039C13.237,268.912,18.283,238.13,18.283,238.13Z" transform="translate(10.453 9.503)" fill="url(#Degradado_sin_nombre_4)"/>
+      <path d="M423.846,471.938S385.4,346.514,270.47,332.078,102.8,558.347,102.8,558.347Z" transform="translate(10.453 9.503)" fill="#262526" opacity="0.9" style="isolation: isolate"/>
+      <path d="M222.607,148.238S246.431,4.619,322.43,3.546,427.922,148.238,427.922,148.238Z" transform="translate(10.453 9.503)" opacity="0.7" fill="url(#Degradado_sin_nombre_5)" style="isolation: isolate"/>
+    </g>
+  </g>
+</svg>

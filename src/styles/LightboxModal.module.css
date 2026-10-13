@@ -1,0 +1,167 @@
+/* src/styles/LightboxModal.module.css */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10, 10, 10, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  padding: 40px;
+  cursor: zoom-out;
+  /* Indica que se puede cerrar haciendo clic */
+}
+
+.imageContainer {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: default;
+  /* Dentro de la imagen, el cursor es normal */
+}
+
+.image {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.title {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* src/styles/LightboxModal.module.css */
+
+/* Fondo oscuro que cubre toda la pantalla */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10, 10, 10, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  padding: 40px;
+  cursor: zoom-out;
+}
+
+/* Contenedor de la imagen y el botón */
+.imageContainer {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: default;
+
+  /* CLAVE: Espacio reservado arriba para que el botón no se corte */
+  padding-top: 30px;
+}
+
+/* Botón de Cerrar (X) */
+.closeBtn {
+  position: absolute;
+  /* Bajamos un poco el botón para que no se salga del contenedor */
+  top: -20px;
+  right: 0;
+
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.closeBtn:hover {
+  background: var(--cmyk-magenta);
+  border-color: var(--cmyk-magenta);
+  transform: rotate(90deg);
+}
+
+/* Imagen en grande */
+.image {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Título debajo de la imagen */
+.title {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 20px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* =========================================
+   RESPONSIVO
+   ========================================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .image {
+    max-height: 75vh;
+  }
+}
+
+/* Móvil */
+@media (max-width: 768px) {
+  .overlay {
+    padding: 20px;
+  }
+
+  .imageContainer {
+    padding-top: 20px;
+  }
+
+  .image {
+    max-height: 70vh;
+    border-radius: 8px;
+  }
+
+  .title {
+    font-size: 1rem;
+    margin-top: 16px;
+  }
+
+  .closeBtn {
+    /* En móvil también lo bajamos un poco */
+    top: -35px;
+    width: 38px;
+    height: 38px;
+  }
+}

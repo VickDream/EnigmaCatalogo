@@ -1,0 +1,294 @@
+/* =========================================
+   VARIABLES GLOBALES Y COLORES CMYK
+   ========================================= */
+:root {
+  /* Colores CMYK adaptados a HEX para pantalla */
+  --cmyk-cyan: #009FE3;
+  --cmyk-magenta: #E6007E;
+  --cmyk-yellow: #FFD100;
+  --cmyk-black: #1A1A1A;
+
+  /* Colores de texto y fondos */
+  --text-dark: #1A1A1A;
+  --text-light: #FFFFFF;
+  --bg-glass: rgba(255, 255, 255, 0.75);
+  --bg-glass-dark: rgba(26, 26, 26, 0.65);
+  --border-glass: rgba(255, 255, 255, 0.4);
+
+  /* Fuentes (si usas una fuente específica, cámbiala aquí) */
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  background-color: #f8f9fa;
+  /* Color base por si el fondo falla */
+}
+
+/* =========================================
+   FONDO ANIMADO CMYK (Ondas fluidas)
+   ========================================= */
+/* Este div se colocará en App.jsx detrás de todo */
+.app-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+}
+
+/* Formas orgánicas animadas */
+.app-background::before,
+.app-background::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.6;
+  animation: floatBlob 20s infinite ease-in-out alternate;
+}
+
+.app-background::before {
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, var(--cmyk-cyan) 0%, transparent 70%);
+  top: -20vh;
+  left: -10vw;
+  animation-duration: 25s;
+}
+
+.app-background::after {
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, var(--cmyk-magenta) 0%, transparent 70%);
+  bottom: -15vh;
+  right: -10vw;
+  animation-duration: 30s;
+  animation-direction: alternate-reverse;
+}
+
+/* Tercera forma (Amarilla) - Usamos un div extra en el JSX o un pseudo-elemento en un contenedor */
+/* Para hacerlo más fácil, añadiremos un div extra en App.jsx para el amarillo */
+.bg-yellow-blob {
+  position: absolute;
+  width: 45vw;
+  height: 45vw;
+  background: radial-gradient(circle, var(--cmyk-yellow) 0%, transparent 70%);
+  bottom: 10vh;
+  left: 20vw;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  animation: floatBlob 22s infinite ease-in-out alternate;
+}
+
+/* Animación de las formas */
+@keyframes floatBlob {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(5%, 10%) scale(1.1);
+  }
+
+  100% {
+    transform: translate(-5%, -5%) scale(0.9);
+  }
+}
+
+/* =========================================
+   UTILIDADES GLOBALES (Glassmorphism)
+   ========================================= */
+.glass-panel {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+.glass-panel-dark {
+  background: var(--bg-glass-dark);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  color: var(--text-light);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================
+   ESTRUCTURA PRINCIPAL
+   ========================================= */
+.mainContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 100px 24px 60px;
+  /* Espacio para el Navbar */
+  min-height: 100vh;
+}
+
+/* =========================================
+   ENCABEZADO DEL CATÁLOGO (REDISEÑADO)
+   ========================================= */
+
+.headerSection {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+  padding: 0 20px;
+}
+
+.headerCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+
+  /* Efecto Cristal sutil */
+  padding: 40px 30px;
+  border-radius: 32px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Etiqueta decorativa superior */
+.headerBadge {
+  display: inline-block;
+  background: rgba(230, 0, 126, 0.1);
+  color: var(--cmyk-magenta);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+/* Título principal */
+.mainTitle {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+
+/* Acento de color en el título */
+.titleAccent {
+  background: linear-gradient(135deg, var(--cmyk-magenta), var(--cmyk-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Subtítulo */
+.mainSubtitle {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   BOTONES GLOBALES
+   ========================================= */
+.btn-primary {
+  background: var(--cmyk-magenta);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(230, 0, 126, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(230, 0, 126, 0.5);
+}
+
+.btn-whatsapp {
+  background: var(--cmyk-cyan);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-whatsapp:hover {
+  background: #0086c3;
+}
+
+/* =========================================
+   RESPONSIVO
+   ========================================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .mainTitle {
+    font-size: 2.5rem;
+  }
+
+  .headerCard {
+    padding: 32px 24px;
+  }
+}
+
+/* Móvil */
+@media (max-width: 768px) {
+  .headerSection {
+    margin-bottom: 40px;
+  }
+
+  .headerCard {
+    padding: 24px 16px;
+    border-radius: 24px;
+  }
+
+  .mainTitle {
+    font-size: 1.9rem;
+    letter-spacing: -0.8px;
+  }
+
+  .mainSubtitle {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .headerBadge {
+    font-size: 0.7rem;
+    padding: 5px 12px;
+    margin-bottom: 16px;
+  }
+}
