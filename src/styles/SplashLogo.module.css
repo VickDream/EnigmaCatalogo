@@ -16,7 +16,7 @@
   /* Fondo con gradiente CMYK sutil (esto se mantiene) */
   background: linear-gradient(135deg, rgba(0, 159, 227, 0.1), rgba(230, 0, 126, 0.1), rgba(255, 209, 0, 0.1));
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  /*-webkit-backdrop-filter: blur(20px);*/
 }
 
 /* Contenedor del Logo */
