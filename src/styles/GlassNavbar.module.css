@@ -301,3 +301,91 @@
     /* Ocultar texto "Contactar" en móvil, dejar solo el icono */
   }
 }
+
+/* =========================================
+   SPLASH LOGO + BLUR (Estilos globales)
+   ========================================= */
+:global(.blurOverlay) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5000;
+  pointer-events: none;
+  
+  /* Efecto Blur */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  
+  /* Fondo sutil con gradiente CMYK */
+  background: linear-gradient(
+    135deg, 
+    rgba(0, 159, 227, 0.05), 
+    rgba(230, 0, 126, 0.05), 
+    rgba(255, 209, 0, 0.05)
+  );
+}
+
+:global(.splashContainer) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  z-index: 5001;
+  pointer-events: none;
+}
+
+:global(.splashLogoContainer) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+:global(.splashLogoIcon) {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:global(.splashLogoImage) {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+:global(.splashLogoText) {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+}
+
+:global(.splashLoadingText) {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #666;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  :global(.splashLogoIcon) { width: 60px; height: 60px; }
+  :global(.splashLogoText) { font-size: 1.2rem; }
+  :global(.splashLoadingText) { font-size: 0.8rem; }
+}

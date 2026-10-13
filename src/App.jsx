@@ -15,7 +15,7 @@ import './App.css';
 
 export default function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const location = useLocation();
@@ -60,9 +60,10 @@ export default function App() {
         <div className="bg-yellow-blob"></div>
       </div>
 
-      {/* --- SPLASH LOGO (Pantalla de carga) --- */}
-      <AnimatePresence>
-        {(isLoading || isTransitioning) && <SplashLogo />}
+      {/* --- SPLASH LOGO --- */}
+      {/* La key basada en la ruta fuerza el remontaje en cada navegación */}
+      <AnimatePresence mode="wait">
+        <SplashLogo key={location.pathname} />
       </AnimatePresence>
 
       {/* --- NAVBAR --- */}
