@@ -93,3 +93,101 @@
     font-size: 0.8rem;
   }
 }
+
+.blurOverlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5000;
+
+  /* La transparencia permite apreciar el blur */
+  background: linear-gradient(
+    135deg,
+    rgba(0, 159, 227, 0.12),
+    rgba(230, 0, 126, 0.12),
+    rgba(255, 209, 0, 0.12)
+  );
+
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splashContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  /* Evita superponer otro fondo opaco */
+  background: transparent;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.logoIcon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.logoText {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+}
+
+.loadingText {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #666;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .logoIcon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .logoText {
+    font-size: 1.2rem;
+  }
+
+  .loadingText {
+    font-size: 0.8rem;
+  }
+}
