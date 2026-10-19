@@ -2,14 +2,16 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX, FiMessageCircle } from 'react-icons/fi';
+import { FiMenu, FiX, FiMessageCircle, FiShoppingCart } from 'react-icons/fi';
 import { WHATSAPP_URL } from '../data/config';
+import { useCart } from '../context/useCart';
 import styles from '../styles/GlassNavbar.module.css';
 
 export const GlassNavbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { totalItems, openDrawer } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,11 +21,8 @@ export const GlassNavbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [location.pathname]);
-
   const isGallery = location.pathname === '/galeria';
+  const isShop = location.pathname === '/tienda';
 
   const menuVariants = {
     hidden: { opacity: 0, height: 0, y: -20 },
@@ -61,9 +60,15 @@ export const GlassNavbar = () => {
         <div className={styles.navLinks}>
           <Link
             to="/"
-            className={`${styles.navLink} ${!isGallery ? styles.active : ''}`}
+            className={`${styles.navLink} ${!isGallery && !isShop ? styles.active : ''}`}
           >
             Catálogo
+          </Link>
+          <Link
+            to="/tienda"
+            className={`${styles.navLink} ${isShop ? styles.active : ''}`}
+          >
+            Tienda
           </Link>
           <Link
             to="/galeria"
@@ -75,6 +80,16 @@ export const GlassNavbar = () => {
 
         {/* Contenedor de Acciones (Botón WhatsApp + Hamburguesa) */}
         <div className={styles.actionsContainer}>
+
+          {/* Botón Carrito con badge */}
+          <button
+            className={styles.cartBtn}
+            onClick={openDrawer}
+            aria-label={`Abrir carrito, ${totalItems} artículos`}
+          >
+            <FiShoppingCart size={19} />
+            {totalItems > 0 && <span className={styles.cartBadge}>{totalItems}</span>}
+          </button>
 
           {/* Botón de Contacto */}
           <a
@@ -111,10 +126,17 @@ export const GlassNavbar = () => {
           >
             <Link
               to="/"
-              className={`${styles.mobileNavLink} ${!isGallery ? styles.active : ''}`}
+              className={`${styles.mobileNavLink} ${!isGallery && !isShop ? styles.active : ''}`}
               onClick={() => setIsMenuOpen(false)}
             >
               Catálogo
+            </Link>
+            <Link
+              to="/tienda"
+              className={`${styles.mobileNavLink} ${isShop ? styles.active : ''}`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Tienda
             </Link>
             <Link
               to="/galeria"

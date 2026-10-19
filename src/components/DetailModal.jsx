@@ -1,11 +1,13 @@
 // src/components/DetailModal.jsx
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiX, FiMessageCircle } from 'react-icons/fi';
-import { WHATSAPP_URL } from '../data/config'; // <-- Importamos la URL
+import { FiX, FiMessageCircle, FiShoppingCart } from 'react-icons/fi';
+import { buildWhatsAppUrl } from '../data/config';
+import { useCart } from '../context/useCart';
 import styles from '../styles/DetailModal.module.css';
 
 export const DetailModal = ({ product, onClose }) => {
+  const { addItem } = useCart();
 
   // Bloquear el scroll del body cuando el modal está abierto
   useEffect(() => {
@@ -75,18 +77,32 @@ export const DetailModal = ({ product, onClose }) => {
             <h2 className={styles.title}>{product.name}</h2>
             <p className={styles.description}>{product.description}</p>
 
-            <div className={styles.price}>${product.price} MXN</div>
+            <div className={styles.price}>Desde ${product.price} MXN</div>
 
             <div className={styles.actions}>
-              {/* Botón de WhatsApp (Ahora es un enlace <a>) */}
+              {/* Agregar al carrito */}
+              <button
+                className={styles.btnCart}
+                onClick={() => {
+                  addItem(product);
+                  onClose();
+                }}
+              >
+                <FiShoppingCart size={20} />
+                Agregar al carrito
+              </button>
+
+              {/* Botón de WhatsApp con mensaje contextual */}
               <a
-                href={WHATSAPP_URL}
+                href={buildWhatsAppUrl(
+                  `¡Hola! Me interesa cotizar: ${product.name} (${product.category})`
+                )}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.btnWhatsApp}
               >
                 <FiMessageCircle size={20} />
-                Cotizar
+                Cotizar por WhatsApp
               </a>
             </div>
           </div>

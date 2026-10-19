@@ -1,0 +1,226 @@
+﻿/* src/styles/CheckoutModal.module.css */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.modalContainer {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  padding: 32px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0 0 6px 0;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+  margin: 0 0 24px 0;
+}
+
+/* --- RESUMEN DEL PEDIDO --- */
+.summary {
+  background: rgba(0, 169, 224, 0.06);
+  border: 1px solid rgba(0, 169, 224, 0.15);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.summaryItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: #444;
+  padding: 4px 0;
+}
+
+.summaryItem span:first-child {
+  font-weight: 600;
+}
+
+.summaryTotal {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(0, 169, 224, 0.3);
+  font-weight: 800;
+  color: var(--cmyk-magenta);
+  font-size: 1rem;
+}
+
+/* --- FORMULARIO --- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: white;
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--cmyk-cyan);
+  box-shadow: 0 0 0 3px rgba(0, 169, 224, 0.15);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* --- ENVÃO --- */
+.radioGroup {
+  display: flex;
+  gap: 12px;
+}
+
+.radioOption {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #555;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.radioOption:has(input:checked) {
+  border-color: var(--cmyk-cyan);
+  background: rgba(0, 169, 224, 0.06);
+  color: var(--text-dark);
+}
+
+.radioOption input {
+  accent-color: var(--cmyk-cyan);
+  margin: 0;
+}
+
+/* --- BOTÃ“N ENVIAR --- */
+.submitBtn {
+  background: #25d366;
+  color: white;
+  border: none;
+  padding: 16px 24px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+  margin-top: 8px;
+}
+
+.submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(37, 211, 102, 0.45);
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* --- CERRAR --- */
+.closeBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.closeBtn:hover {
+  background: var(--cmyk-magenta);
+  color: white;
+  transform: rotate(90deg);
+}
+
+/* =========================================
+   RESPONSIVO
+   ========================================= */
+@media (max-width: 768px) {
+  .modalContainer {
+    padding: 24px 20px;
+    border-radius: 20px;
+    max-height: 92vh;
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .radioGroup {
+    flex-direction: column;
+  }
+}

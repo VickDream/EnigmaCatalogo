@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { products } from './data/products';
 import { galleryItems } from './data/gallery';
 
@@ -9,49 +8,17 @@ import { GlassNavbar } from './components/GlassNavbar';
 import { BentoGrid } from './components/BentoGrid';
 import { DetailModal } from './components/DetailModal';
 import { PortfolioGrid } from './components/PortfolioGrid';
+import { ShopPage } from './pages/ShopPage';
 import { SplashLogo } from './components/SplashLogo';
+import { CartDrawer } from './components/CartDrawer';
+import { CheckoutModal } from './components/CheckoutModal';
 
 import './App.css';
 
 export default function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const location = useLocation();
   const navigate = useNavigate();
-
-  // Carga inicial (simulada)
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Transición de rutas
-  useEffect(() => {
-    if (isLoading) return;
-    setIsTransitioning(true);
-    const timer = setTimeout(() => {
-      setIsTransitioning(false);
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, [location.pathname, isLoading]);
-
-  // Lógica de redirección a galería (por si se necesita a futuro)
-  const handleShowGallery = (product) => {
-    setSelectedProduct(null);
-    const rawCategory = product.category ? product.category.toLowerCase().trim() : '';
-    let targetCategory = 'Promocionales';
-
-    if (rawCategory.includes('dtf uv')) targetCategory = 'Termos y Tazas';
-    else if (rawCategory.includes('textil') || rawCategory.includes('camisa') || rawCategory.includes('ropa')) targetCategory = 'Textil';
-    else if (rawCategory.includes('termo') || rawCategory.includes('taza')) targetCategory = 'Termos y Tazas';
-    else if (rawCategory.includes('etiqueta') || rawCategory.includes('sticker') || rawCategory.includes('papel')) targetCategory = 'Etiquetas y Papelería';
-
-    navigate('/galeria', { state: { category: targetCategory } });
-  };
 
   return (
     <>
@@ -61,13 +28,15 @@ export default function App() {
       </div>
 
       {/* --- SPLASH LOGO --- */}
-      {/* La key basada en la ruta fuerza el remontaje en cada navegación */}
-      <AnimatePresence mode="wait">
-        <SplashLogo key={location.pathname} />
-      </AnimatePresence>
+      {/* Se muestra SOLO en la primera carga; no se repite en navegaciones internas */}
+      <SplashLogo />
 
       {/* --- NAVBAR --- */}
       <GlassNavbar />
+
+      {/* --- CARRITO / CHECKOUT (globales, fuera de rutas) --- */}
+      <CartDrawer />
+      <CheckoutModal />
 
       {/* --- CONTENIDO PRINCIPAL --- */}
       <main className="mainContainer">
@@ -97,6 +66,14 @@ export default function App() {
                 onClose={() => setSelectedProduct(null)}
               />
             </>
+          } />
+
+          {/* --- RUTA DE TIENDA --- */}
+          <Route path="/tienda" element={
+            <ShopPage
+              onBackHome={() => navigate('/')}
+              onSelectProduct={(product) => setSelectedProduct(product)}
+            />
           } />
 
           {/* --- RUTA DE GALERÍA --- */}

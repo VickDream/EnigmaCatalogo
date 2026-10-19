@@ -1,4 +1,4 @@
-/* src/styles/PortfolioGrid.module.css */
+﻿/* src/styles/PortfolioGrid.module.css */
 
 .portfolioContainer {
   width: 100%;
@@ -63,10 +63,10 @@
   background: var(--cmyk-magenta);
   color: white;
   border-color: var(--cmyk-magenta);
-  box-shadow: 0 6px 20px rgba(230, 0, 126, 0.3);
+  box-shadow: 0 6px 20px rgba(236, 30, 121, 0.3);
 }
 
-/* --- CUADRÍCULA (MASONRY) --- */
+/* --- CUADRÃCULA (MASONRY) --- */
 .grid {
   column-count: 3;
   /* 3 columnas en Desktop */
@@ -104,7 +104,7 @@
   transform: scale(1.05);
 }
 
-/* Overlay que aparece al hacer hover para mostrar el título */
+/* Overlay que aparece al hacer hover para mostrar el tÃ­tulo */
 .overlay {
   position: absolute;
   bottom: 0;
@@ -135,7 +135,7 @@
   transform: translateY(0);
 }
 
-/* --- ESTADO VACÍO --- */
+/* --- ESTADO VACÃO --- */
 .emptyState {
   text-align: center;
   padding: 60px 20px;
@@ -143,7 +143,7 @@
   font-size: 1.1rem;
 }
 
-/* --- BOTÓN DE VOLVER --- */
+/* --- BOTÃ“N DE VOLVER --- */
 .backBtn {
   background: transparent;
   border: none;
@@ -161,7 +161,7 @@
 }
 
 .backBtn:hover {
-  background: rgba(0, 159, 227, 0.1);
+  background: rgba(0, 169, 224, 0.1);
   color: var(--cmyk-magenta);
 }
 
@@ -181,7 +181,7 @@
   }
 }
 
-/* Móvil */
+/* MÃ³vil */
 @media (max-width: 768px) {
   .portfolioContainer {
     padding: 20px 16px 60px;
@@ -189,7 +189,7 @@
 
   .grid {
     column-count: 1;
-    /* 1 columna en Móvil */
+    /* 1 columna en MÃ³vil */
     column-gap: 0;
   }
 
@@ -216,7 +216,7 @@
     margin-bottom: 16px;
   }
 
-  /* En móvil, el overlay siempre visible para que se lea el título */
+  /* En mÃ³vil, el overlay siempre visible para que se lea el tÃ­tulo */
   .overlay {
     opacity: 1;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent 60%);

@@ -1,4 +1,4 @@
-/* src/styles/LightboxModal.module.css */
+﻿/* src/styles/LightboxModal.module.css */
 
 .overlay {
   position: fixed;
@@ -65,7 +65,7 @@
   cursor: zoom-out;
 }
 
-/* Contenedor de la imagen y el botón */
+/* Contenedor de la imagen y el botÃ³n */
 .imageContainer {
   position: relative;
   max-width: 90vw;
@@ -75,14 +75,14 @@
   align-items: center;
   cursor: default;
 
-  /* CLAVE: Espacio reservado arriba para que el botón no se corte */
+  /* CLAVE: Espacio reservado arriba para que el botÃ³n no se corte */
   padding-top: 30px;
 }
 
-/* Botón de Cerrar (X) */
+/* BotÃ³n de Cerrar (X) */
 .closeBtn {
   position: absolute;
-  /* Bajamos un poco el botón para que no se salga del contenedor */
+  /* Bajamos un poco el botÃ³n para que no se salga del contenedor */
   top: -20px;
   right: 0;
 
@@ -117,7 +117,7 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
-/* Título debajo de la imagen */
+/* TÃ­tulo debajo de la imagen */
 .title {
   color: white;
   font-size: 1.1rem;
@@ -138,7 +138,7 @@
   }
 }
 
-/* Móvil */
+/* MÃ³vil */
 @media (max-width: 768px) {
   .overlay {
     padding: 20px;
@@ -159,7 +159,7 @@
   }
 
   .closeBtn {
-    /* En móvil también lo bajamos un poco */
+    /* En mÃ³vil tambiÃ©n lo bajamos un poco */
     top: -35px;
     width: 38px;
     height: 38px;

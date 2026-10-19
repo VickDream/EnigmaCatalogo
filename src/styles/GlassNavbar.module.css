@@ -1,4 +1,4 @@
-/* src/styles/GlassNavbar.module.css */
+﻿/* src/styles/GlassNavbar.module.css */
 
 .navbarWrapper {
   position: fixed;
@@ -29,7 +29,7 @@
   max-width: 1200px;
   padding: 12px 24px;
   border-radius: 50px;
-  /* Forma de píldora */
+  /* Forma de pÃ­ldora */
 
   /* Efecto Cristal (Glassmorphism) */
   background: rgba(255, 255, 255, 0.65);
@@ -41,7 +41,7 @@
   transition: all 0.4s ease;
 }
 
-/* Cuando se hace scroll, la barra se vuelve un poco más oscura/opaca */
+/* Cuando se hace scroll, la barra se vuelve un poco mÃ¡s oscura/opaca */
 .navbarWrapper.scrolled .navbar {
   background: rgba(255, 255, 255, 0.85);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -81,14 +81,14 @@
   font-size: 1rem;
   color: var(--text-dark);
   white-space: nowrap;
-  /* Evita que el texto haga saltos de línea */
+  /* Evita que el texto haga saltos de lÃ­nea */
 
   /* Estado inicial: oculto y sin ancho */
   opacity: 0;
   max-width: 0;
   overflow: hidden;
 
-  /* Animación suave para revelar */
+  /* AnimaciÃ³n suave para revelar */
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -96,13 +96,13 @@
 .logoContainer:hover .logoText {
   opacity: 1;
   max-width: 250px;
-  /* Ancho suficiente para "Enigma Publicidad & Diseño" */
+  /* Ancho suficiente para "Enigma Publicidad & DiseÃ±o" */
   margin-left: 8px;
-  /* Pequeño desplazamiento hacia la derecha */
+  /* PequeÃ±o desplazamiento hacia la derecha */
 }
 
 /* =========================================
-   ENLACES DE NAVEGACIÓN
+   ENLACES DE NAVEGACIÃ“N
    ========================================= */
 .navLinks {
   display: flex;
@@ -123,13 +123,13 @@
 
 .navLink:hover {
   color: var(--cmyk-magenta);
-  background: rgba(230, 0, 126, 0.08);
+  background: rgba(236, 30, 121, 0.08);
 }
 
 .navLink.active {
   color: white;
   background: var(--cmyk-magenta);
-  box-shadow: 0 4px 10px rgba(230, 0, 126, 0.3);
+  box-shadow: 0 4px 10px rgba(236, 30, 121, 0.3);
 }
 
 /* =========================================
@@ -139,13 +139,70 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  /* Espacio entre el botón de WhatsApp y la hamburguesa */
+  /* Espacio entre el botÃ³n de WhatsApp y la hamburguesa */
   margin-left: auto;
   /* Empuja el grupo hacia la derecha */
 }
 
 /* =========================================
-   BOTÓN DE CONTACTO
+   BOTÃ“N DE CARRITO
+   ========================================= */
+.cartBtn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.cartBtn:hover {
+  background: var(--cmyk-magenta);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(236, 30, 121, 0.35);
+}
+
+.cartBadge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--cmyk-magenta);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(236, 30, 121, 0.4);
+  animation: badgePop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.5);
+}
+
+@keyframes badgePop {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+/* =========================================
+   BOTÃ“N DE CONTACTO
    ========================================= */
 .contactBtn {
   background: linear-gradient(135deg, var(--cmyk-magenta), var(--cmyk-cyan));
@@ -160,17 +217,17 @@
   align-items: center;
   gap: 6px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(230, 0, 126, 0.3);
+  box-shadow: 0 4px 15px rgba(236, 30, 121, 0.3);
   text-decoration: none;
 }
 
 .contactBtn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(230, 0, 126, 0.5);
+  box-shadow: 0 6px 20px rgba(236, 30, 121, 0.5);
 }
 
 /* =========================================
-   MENÚ MÓVIL (HAMBURGUESA)
+   MENÃš MÃ“VIL (HAMBURGUESA)
    ========================================= */
 .mobileMenuBtn {
   display: none;
@@ -181,7 +238,7 @@
   color: var(--text-dark);
 }
 
-/* --- MENÚ DESPLEGABLE MÓVIL --- */
+/* --- MENÃš DESPLEGABLE MÃ“VIL --- */
 .mobileMenu {
   display: none;
   /* Oculto por defecto en Desktop */
@@ -225,14 +282,14 @@
 }
 
 .mobileNavLink:hover {
-  background: rgba(230, 0, 126, 0.08);
+  background: rgba(236, 30, 121, 0.08);
   color: var(--cmyk-magenta);
 }
 
 .mobileNavLink.active {
   background: var(--cmyk-magenta);
   color: white;
-  box-shadow: 0 4px 15px rgba(230, 0, 126, 0.3);
+  box-shadow: 0 4px 15px rgba(236, 30, 121, 0.3);
 }
 
 /* =========================================
@@ -251,7 +308,7 @@
   }
 }
 
-/* Móvil */
+/* MÃ³vil */
 @media (max-width: 768px) {
   .navbarWrapper {
     padding: 12px;
@@ -262,7 +319,7 @@
     border-radius: 24px;
   }
 
-  /* En móvil, el texto del logo siempre está visible (no hay hover) */
+  /* En mÃ³vil, el texto del logo siempre estÃ¡ visible (no hay hover) */
   .logoText {
     opacity: 1;
     max-width: 200px;
@@ -272,20 +329,20 @@
 
   .navLinks {
     display: none;
-    /* Ocultar enlaces en móvil, se manejan con menú desplegable */
+    /* Ocultar enlaces en mÃ³vil, se manejan con menÃº desplegable */
   }
 
   .mobileMenuBtn {
     display: block;
-    /* Mostrar botón hamburguesa */
+    /* Mostrar botÃ³n hamburguesa */
   }
 
-  /* Mostrar el menú desplegable cuando está en móvil */
+  /* Mostrar el menÃº desplegable cuando estÃ¡ en mÃ³vil */
   .mobileMenu {
     display: flex;
   }
 
-  /* Ajustes para el contenedor de acciones en móvil */
+  /* Ajustes para el contenedor de acciones en mÃ³vil */
   .actionsContainer {
     gap: 4px;
     /* Menos espacio entre WhatsApp y hamburguesa */
@@ -298,7 +355,7 @@
 
   .contactBtn span {
     display: none;
-    /* Ocultar texto "Contactar" en móvil, dejar solo el icono */
+    /* Ocultar texto "Contactar" en mÃ³vil, dejar solo el icono */
   }
 }
 
@@ -313,18 +370,16 @@
   height: 100vh;
   z-index: 5000;
   pointer-events: none;
-  
+
   /* Efecto Blur */
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  
+
   /* Fondo sutil con gradiente CMYK */
-  background: linear-gradient(
-    135deg, 
-    rgba(0, 159, 227, 0.05), 
-    rgba(230, 0, 126, 0.05), 
-    rgba(255, 209, 0, 0.05)
-  );
+  background: linear-gradient(135deg,
+      rgba(0, 169, 224, 0.05),
+      rgba(236, 30, 121, 0.05),
+      rgba(255, 198, 41, 0.05));
 }
 
 :global(.splashContainer) {
@@ -380,12 +435,28 @@
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 768px) {
-  :global(.splashLogoIcon) { width: 60px; height: 60px; }
-  :global(.splashLogoText) { font-size: 1.2rem; }
-  :global(.splashLoadingText) { font-size: 0.8rem; }
+  :global(.splashLogoIcon) {
+    width: 60px;
+    height: 60px;
+  }
+
+  :global(.splashLogoText) {
+    font-size: 1.2rem;
+  }
+
+  :global(.splashLoadingText) {
+    font-size: 0.8rem;
+  }
 }

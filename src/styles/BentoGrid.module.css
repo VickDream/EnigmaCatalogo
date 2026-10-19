@@ -1,21 +1,21 @@
-/* src/styles/BentoGrid.module.css */
+﻿/* src/styles/BentoGrid.module.css */
 
 .gridContainer {
   display: grid;
   /* Columnas: 4 columnas en Desktop */
   grid-template-columns: repeat(4, 1fr);
-  /* Filas automáticas de 250px de alto base */
+  /* Filas automÃ¡ticas de 250px de alto base */
   grid-auto-rows: 250px;
   /* Espacio entre tarjetas */
   gap: 24px;
-  /* Rellenar huecos automáticamente para que no queden espacios vacíos */
+  /* Rellenar huecos automÃ¡ticamente para que no queden espacios vacÃ­os */
   grid-auto-flow: dense;
   width: 100%;
   padding-bottom: 60px;
 }
 
 /* =========================================
-   VARIACIONES DE TAMAÑO (Para el efecto Bento)
+   VARIACIONES DE TAMAÃ‘O (Para el efecto Bento)
    ========================================= */
 
 /* Tarjeta Grande (2x2) - Ocupa 2 columnas y 2 filas */
@@ -62,17 +62,17 @@
   }
 }
 
-/* Móvil */
+/* MÃ³vil */
 @media (max-width: 768px) {
   .gridContainer {
-    /* 1 columna en Móvil */
+    /* 1 columna en MÃ³vil */
     grid-template-columns: 1fr;
     grid-auto-rows: 300px;
-    /* Más altas para que se vean bien */
+    /* MÃ¡s altas para que se vean bien */
     gap: 16px;
   }
 
-  /* En móvil, TODAS las tarjetas ocupan el 100% del ancho (1 columna) */
+  /* En mÃ³vil, TODAS las tarjetas ocupan el 100% del ancho (1 columna) */
   .cardLarge,
   .cardWide,
   .cardTall,

@@ -3,15 +3,36 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from '../styles/SplashLogo.module.css';
 
+const MIN_SPLASH_MS = 1200;
+
 export const SplashLogo = () => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(false);
-    }, 1500);
+    const start = Date.now();
 
-    return () => clearTimeout(timer);
+    // Esperamos a que la página TERMINÉ de cargar (imágenes, fuentes, CSS).
+    // Así siempre hay contenido real detrás del blur,
+    // tanto en local como en producción (Cloudflare).
+    const handleReady = () => {
+      const elapsed = Date.now() - start;
+      const remaining = Math.max(0, MIN_SPLASH_MS - elapsed);
+      setTimeout(() => setIsVisible(false), remaining);
+    };
+
+    if (document.readyState === 'complete') {
+      handleReady();
+    } else {
+      window.addEventListener('load', handleReady, { once: true });
+      // Fallback de seguridad: máximo 4s aunque algo tarde en cargar
+      const fallback = setTimeout(() => setIsVisible(false), 4000);
+      return () => {
+        window.removeEventListener('load', handleReady);
+        clearTimeout(fallback);
+      };
+    }
+
+    return undefined;
   }, []);
 
   const containerVariants = {
