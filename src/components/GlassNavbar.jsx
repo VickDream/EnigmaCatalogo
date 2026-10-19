@@ -53,7 +53,7 @@ export const GlassNavbar = () => {
               className={styles.logoImage}
             />
           </div>
-          <span className={styles.logoText}>Enigma Publicidad & Diseño</span>
+          {/*<span className={styles.logoText}>Enigma Publicidad & Diseño</span>*/}
         </Link>
 
         {/* Enlaces de Navegación (Desktop) */}
@@ -98,7 +98,7 @@ export const GlassNavbar = () => {
             rel="noopener noreferrer"
             className={styles.contactBtn}
           >
-            <span>¡Contactar!</span>
+            {/*<span>¡Contactar!</span>*/}
             <FiMessageCircle size={18} />
           </a>
 
