@@ -1,31 +1,35 @@
 # Dependencias
-/node_modules
-/.pnp
+node_modules/
+.pnp
 .pnp.js
 
-# Producción
-/build
-/dist
+# Build / producción (Vite genera dist/)
+dist/
+build/
 
 # Variables de entorno
 .env
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*.local
 
 # Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-logs
 *.log
+logs/
 
 # Caché y temporales
-.cache
-.temp
-.tmp
+.cache/
+.temp/
+.tmp/
+.vite/
+
+# Capturas / artifacts de QA
+qa-*.png
+qa_*.png
+_qa_*.png
 
 # Sistema operativo
 .DS_Store
@@ -35,9 +39,6 @@ desktop.ini
 # Editores
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 *.swp
 *.swo
-
-# Vite (si aplica)
-.vite
